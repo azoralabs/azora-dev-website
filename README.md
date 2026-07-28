@@ -3,6 +3,7 @@
 Azora Dev is the database-backed community application for Azora developers. It
 combines focused Q&A, engineering discussions, long-form blog posts, profiles,
 tags, voting, accepted solutions, bookmarks, notifications, and moderation.
+The canonical production address is `https://azora.dev`.
 
 ## Architecture
 

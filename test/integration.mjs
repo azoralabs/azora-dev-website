@@ -9,7 +9,7 @@ async function request(path, { cookie, method = 'GET', body } = {}) {
     headers: {
       ...(body ? { 'Content-Type': 'application/json' } : {}),
       ...(method !== 'GET' ? {
-        Origin: 'https://dev.azoralang.org',
+        Origin: 'https://azora.dev',
         'X-Requested-With': 'azora-web',
       } : {}),
       ...(cookie ? { Cookie: cookie } : {}),

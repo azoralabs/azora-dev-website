@@ -31,10 +31,10 @@ const primaryNavigation = [
 
 function SidebarLink({ item, close, location }) {
   const Icon = item.icon
-  const target = new URL(item.to, 'https://dev.azoralang.org')
+  const [targetPath, targetQuery = ''] = item.to.split('?')
   const current = new URLSearchParams(location.search)
-  const expected = target.searchParams
-  const active = location.pathname === target.pathname
+  const expected = new URLSearchParams(targetQuery)
+  const active = location.pathname === targetPath
     && [...expected.entries()].every(([key, value]) => current.get(key) === value)
     && (expected.size > 0 || !current.has('kind'))
   return (

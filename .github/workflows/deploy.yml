@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 20
     environment:
       name: production
-      url: https://dev.azoralang.org
+      url: https://azora.dev
 
     steps:
       - name: Checkout
