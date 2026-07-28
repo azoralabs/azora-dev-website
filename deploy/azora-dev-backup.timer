@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the Azora Dev database backup every day
+
+[Timer]
+OnCalendar=*-*-* 03:20:00 UTC
+Persistent=true
+RandomizedDelaySec=900
+Unit=azora-dev-backup.service
+
+[Install]
+WantedBy=timers.target
