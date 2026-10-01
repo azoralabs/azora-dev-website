@@ -65,11 +65,14 @@ GitHub Actions builds and tests every push to `main`, uploads the source tree to
 The repository needs one GitHub Actions secret:
 
 ```text
-AZORA_SSH_PRIVATE_KEY
+DEPLOY_SSH_PRIVATE_KEY
 ```
 
-It must contain the private deployment key corresponding to the public key
-installed for the unprivileged `azora-deploy` VPS account. The account receives
+It must contain this repository's own deployment key. The matching public key
+is installed for the unprivileged `azora-deploy` VPS account with a forced
+command, `/usr/local/sbin/azora-dev-deploy-ssh`: the key can run the
+deployment command, and otherwise only rsync (through `rrsync -wo`) into
+`/srv/azora-dev`, so the workflow uploads to `app/`. The account receives
 passwordless sudo access only to the deployment command.
 
 Production secrets live in `/srv/azora-dev/.env` on the server and are never
