@@ -75,6 +75,17 @@ deployment command, and otherwise only rsync (through `rrsync -wo`) into
 `/srv/azora-dev`, so the workflow uploads to `app/`. The account receives
 passwordless sudo access only to the deployment command.
 
+Install the root-owned forced-command dispatcher on the VPS before adding the
+public deployment key:
+
+```sh
+sudo bash deploy/install-deploy-ssh.sh
+```
+
+The public key's `authorized_keys` entry must start with
+`command="/usr/local/sbin/azora-dev-deploy-ssh",restrict`. The dispatcher allows
+only uploads into this site's directory and the exact restart command used by CI.
+
 Production secrets live in `/srv/azora-dev/.env` on the server and are never
 uploaded by CI. Required values are:
 
